@@ -4,7 +4,7 @@ from model import GPTConfig, GPTModel
 
 CKPT_PATH = "ckpt.pt"
 
-def load_model(ckpt_path=CKPT_PATH, device="cuda"):
+def load_model(ckpt_path=CKPT_PATH, device="cuda"): # Change this to "cpu" if running locally
     enc = tiktoken.get_encoding("gpt2")
     vocab_size = enc.n_vocab
 
@@ -22,7 +22,7 @@ def load_model(ckpt_path=CKPT_PATH, device="cuda"):
     model.eval()
     return model, enc
 
-def generate(model, enc, prompt, max_new_tokens=100, temperature=1.0, top_k=50, device="cuda"):
+def generate(model, enc, prompt, max_new_tokens=100, temperature=1.0, top_k=50, device="cuda"): # Change to cpu
     model.eval()
     tokens = enc.encode(prompt)
     x = torch.tensor(tokens, dtype=torch.long, device=device)[None, :]  # (1, T)
