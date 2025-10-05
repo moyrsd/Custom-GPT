@@ -122,7 +122,7 @@ def main():
     scaler = amp.GradScaler("cuda", enabled=(DEVICE == "cuda"))
 
     # train
-    train_loop(model, train_loader, val_loader, optimizer, scaler, epochs=5, device=DEVICE)
+    train_loop(model, train_loader, val_loader, optimizer, scaler, epochs=3, device=DEVICE)
 
     print("Training finished.")
 

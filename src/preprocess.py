@@ -12,7 +12,7 @@ def preprocess_openwebtext(
     os.makedirs(out_dir, exist_ok=True)
 
     print("Loading OpenWebText...")
-    dataset = load_dataset("openwebtext", split="train")
+    dataset = load_dataset("wikitext", "wikitext-103-v1", split="train")
 
     enc = tiktoken.get_encoding("gpt2")
     token_stream = []
